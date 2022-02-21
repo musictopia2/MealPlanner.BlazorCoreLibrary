@@ -1,7 +1,7 @@
 namespace MealPlanner.BlazorCoreLibrary;
 public partial class MealPlannerCreaterComponent
 {
-    private AutoCompleteStyleModel _comboModel = new();
+    private readonly AutoCompleteStyleModel _comboModel = new();
     protected override void OnInitialized()
     {
         DataContext!.FocusFirst = FocusAsync;
@@ -11,7 +11,7 @@ public partial class MealPlannerCreaterComponent
         _comboBox = null;
     }
     private ComboBoxStringList? _comboBox;
-    private BasicList<string> _listForCombo => DataContext!.CurrentList.Select(xx => xx.MainCourse).ToBasicList();
+    private BasicList<string> ListForCombo => DataContext!.CurrentList.Select(xx => xx.MainCourse).ToBasicList();
     [Inject]
     private ShellViewModel? DataContext { get; set; }
     private void ChangeData(string value)
@@ -30,10 +30,11 @@ public partial class MealPlannerCreaterComponent
         if (_firsts && _comboBox is not null)
         {
             await _comboBox.GetTextBox!.Value.FocusAsync();
+            _firsts = false;
         }
     }
-    private string SecondGridRows => $"{rr.MinContent} {rr.MaxContent} {rr.MinContent} 1fr";
-    private string SecondGridColumns => $"7fr 2fr {rr.MinContent}";
+    private static string SecondGridRows => $"{rr.MinContent} {rr.MaxContent} {rr.MinContent} 1fr";
+    private static string SecondGridColumns => $"7fr 2fr {rr.MinContent}";
     private async void FocusAsync()
     {
         if (_comboBox is null)

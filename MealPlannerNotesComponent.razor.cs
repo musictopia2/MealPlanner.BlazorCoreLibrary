@@ -15,7 +15,7 @@ public partial class MealPlannerNotesComponent
         "Snacks"
     };
     private BasicList<NoteModel>? _notes;
-    private string _columnWidth = "250px";
+    private readonly string _columnWidth = "250px";
     protected override async Task OnInitializedAsync()
     {
         _notes = await DataContext!.GetNotesAsync();

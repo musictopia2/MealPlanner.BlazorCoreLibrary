@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <PackageReference Include="BasicBlazorLibrary" Version="3.0.1" />
-    <PackageReference Include="CommonBasicLibraries" Version="5.0.1" />
+    <PackageReference Include="CommonBasicLibraries" Version="6.0.7" />
     <PackageReference Include="MealPlanner.CoreLibrary" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
   </ItemGroup>
